@@ -12,13 +12,11 @@ lyrics_database = {
 }
 
 def get_lyrics(song_name):
-    """Get lyrics for a given song name."""
     if not isinstance(song_name, str):
         return None
     return lyrics_database.get(song_name.strip(), None)
 
 def make_quiz(lyrics, num_blanks=3):
-    """Create a quiz by replacing random words with blanks."""
     if not lyrics:
         return None, None
     words = re.findall(r'\b\w+\b', lyrics)
@@ -34,13 +32,11 @@ def make_quiz(lyrics, num_blanks=3):
         return quiz_lyrics, list(answers.values())
 
 def display_available_songs():
-    """Display all available songs in the database."""
     print("\nAvailable songs:")
     for song in lyrics_database.keys():
         print(f"- {song}")
 
 def run_quiz():
-    """Main quiz function."""
     print("Welcome to the Lyrics Quiz!")
     display_available_songs()
     
